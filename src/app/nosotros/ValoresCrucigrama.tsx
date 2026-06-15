@@ -1,86 +1,129 @@
 'use client'
 
-// ── Crucigrama: 3 palabras con intersecciones válidas ─────────────
-// CONEXION(V) col 5. COMUNIDAD(H) arranca en la C de CONEXION (row 0, col 5).
-// CREATIVIDAD(H) cruza CONEXION en I (row 5, col 5).
+// CREATIVIDAD (horizontal) = barra superior de la T → color fg
+// INNOVACION  (vertical)   = tallo de la T          → color accent
+// Intersección: CREATIVIDAD[5] = INNOVACION[0] = 'I'
 
-const ROWS = 8
-const COLS = 14
+const ROWS = 10
+const COLS = 11
 
-const crossword = [
-  { word: 'CONEXION',    h: false, row: 0, col: 5 },   // vertical,  C en (0,5)
-  { word: 'COMUNIDAD',   h: true,  row: 0, col: 5 },   // horizontal, C[0] = CONEXION[0] en (0,5) ✓
-  { word: 'CREATIVIDAD', h: true,  row: 5, col: 0 },   // horizontal, I[5] = CONEXION[5] en (5,5) ✓
-]
+type CellType = 'h' | 'v' | 'both'
+const grid: ({ char: string; type: CellType } | null)[][] =
+  Array.from({ length: ROWS }, () => Array(COLS).fill(null))
 
-type Cell = { char: string; isVertical: boolean } | null
-const grid: Cell[][] = Array.from({ length: ROWS }, () => Array(COLS).fill(null))
-
-crossword.forEach(({ word, h, row, col }) => {
-  ;[...word].forEach((ch, i) => {
-    const r = h ? row : row + i
-    const c = h ? col + i : col
-    if (r < ROWS && c < COLS) {
-      grid[r][c] = { char: ch, isVertical: !h }
-    }
-  })
+'CREATIVIDAD'.split('').forEach((ch, i) => {
+  grid[0][i] = { char: ch, type: i === 5 ? 'both' : 'h' }
+})
+'INNOVACION'.split('').forEach((ch, i) => {
+  if (i === 0) grid[0][5] = { char: ch, type: 'both' }
+  else grid[i][5] = { char: ch, type: 'v' }
 })
 
-const restantes = ['AUTENTICIDAD', 'SENSIBILIDAD', 'INNOVACION', 'EXPRESION', 'RESPETO']
+const izquierda = ['RESPETO', 'CONEXIÓN', 'COMUNIDAD']
+const derecha   = ['AUTENTICIDAD', 'EXPRESIÓN', 'SENSIBILIDAD']
+
+function CrosswordGrid({ fontSize }: { fontSize: string }) {
+  return (
+    <div
+      className="grid w-full"
+      style={{ gridTemplateColumns: `repeat(${COLS}, minmax(0, 1fr))` }}
+    >
+      {grid.map((row, r) =>
+        row.map((cell, c) => (
+          <div key={`${r}-${c}`} className="flex items-center justify-center" style={{ aspectRatio: '1/1' }}>
+            {cell && (
+              <span
+                className="font-display leading-none select-none"
+                style={{
+                  fontSize,
+                  color: cell.type === 'h' ? 'var(--color-fg)' : 'var(--color-accent)',
+                }}
+              >
+                {cell.char}
+              </span>
+            )}
+          </div>
+        ))
+      )}
+    </div>
+  )
+}
 
 export function ValoresCrucigrama() {
   return (
-    <div className="flex-1 flex flex-col md:grid md:grid-cols-[3fr_2fr] gap-6 md:gap-0 min-h-0 md:items-center overflow-y-auto md:overflow-hidden">
+    <div className="flex-1 flex flex-col min-h-0 justify-center">
 
-      {/* ── Crucigrama ─────────────────────────────────────── */}
-      <div className="flex items-center justify-center shrink-0 md:h-full md:py-2">
+      {/* ── Mobile ─────────────────────────────────────────────── */}
+      <div className="flex md:hidden items-center gap-2 w-full">
+
+        {/* Izquierda — texto vertical */}
         <div
-          className="grid w-full"
-          style={{ gridTemplateColumns: `repeat(${COLS}, minmax(0, 1fr))` }}
+          className="flex items-center justify-around shrink-0 gap-3"
+          style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
         >
-          {grid.map((row, r) =>
-            row.map((cell, c) => (
-              <div
-                key={`${r}-${c}`}
-                className="flex items-center justify-center"
-                style={{ aspectRatio: '1/1' }}
-              >
-                {cell ? (
-                  <span
-                    className="font-display leading-none select-none"
-                    style={{
-                      fontSize: 'clamp(0.75rem, 3.5vw, 3.5rem)',
-                      color: cell.isVertical ? 'var(--color-accent)' : 'var(--color-fg)',
-                    }}
-                  >
-                    {cell.char}
-                  </span>
-                ) : (
-                  <span
-                    className="select-none"
-                    style={{ fontSize: 'clamp(0.4rem, 0.6vw, 0.5rem)', color: 'rgba(10,10,10,0.08)' }}
-                  >
-                    ·
-                  </span>
-                )}
-              </div>
-            ))
-          )}
-        </div>
-      </div>
-
-      {/* ── Valores restantes ──────────────────────────────── */}
-      <div className="flex flex-col md:border-l border-t md:border-t-0 border-fg/10 md:pl-10 pt-4 md:pt-0 md:h-full md:justify-center gap-2 shrink-0">
-        {restantes.map((v) => (
-          <div key={v} className="border-b border-fg/10 pb-2">
+          {izquierda.map(v => (
             <span
-              className="font-display leading-none text-muted hover:text-fg transition-colors duration-300 cursor-default"
-              style={{ fontSize: 'clamp(1.2rem, 2.8vw, 2.8rem)' }}
+              key={v}
+              className="font-display leading-none text-muted cursor-default"
+              style={{ fontSize: 'clamp(0.55rem, 2.5vw, 0.9rem)', letterSpacing: '0.05em' }}
             >
               {v}
             </span>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        {/* T — ocupa todo el espacio restante */}
+        <div className="flex-1 min-w-0">
+          <CrosswordGrid fontSize="clamp(0.6rem, 6.5vw, 2rem)" />
+        </div>
+
+        {/* Derecha — texto vertical */}
+        <div
+          className="flex items-center justify-around shrink-0 gap-3"
+          style={{ writingMode: 'vertical-rl' }}
+        >
+          {derecha.map(v => (
+            <span
+              key={v}
+              className="font-display leading-none text-muted cursor-default"
+              style={{ fontSize: 'clamp(0.55rem, 2.5vw, 0.9rem)', letterSpacing: '0.05em' }}
+            >
+              {v}
+            </span>
+          ))}
+        </div>
+
+      </div>
+
+      {/* ── Desktop ─────────────────────────────────────────────── */}
+      <div className="hidden md:grid md:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-14 items-center flex-1">
+
+        <div className="flex flex-col gap-4 lg:gap-6 justify-center items-start">
+          {izquierda.map(v => (
+            <span
+              key={v}
+              className="font-display leading-none text-muted hover:text-fg transition-colors duration-300 cursor-default block"
+              style={{ fontSize: 'clamp(1rem, 2vw, 2.6rem)' }}
+            >
+              {v}
+            </span>
+          ))}
+        </div>
+
+        <CrosswordGrid fontSize="clamp(1rem, 2.8vw, 3rem)" />
+
+        <div className="flex flex-col gap-4 lg:gap-6 justify-center items-end">
+          {derecha.map(v => (
+            <span
+              key={v}
+              className="font-display leading-none text-muted hover:text-fg transition-colors duration-300 cursor-default block text-right"
+              style={{ fontSize: 'clamp(1rem, 2vw, 2.6rem)' }}
+            >
+              {v}
+            </span>
+          ))}
+        </div>
+
       </div>
 
     </div>

@@ -28,14 +28,14 @@ export const editions: Edition[] = [
     color: '#E8621A',
     colorLight: '#F07840',
     date: '2026',
-    artists: ['Mellon Collie', 'Alejandro Pequeña'],
+    artists: ['Mellon Collie', 'Alejandro Peña'],
     credits: [
       { role: 'músico', name: 'Mellon Collie', url: 'https://instagram.com/mellon_collie_mx' },
-      { role: 'artista visual', name: 'Alejandro Pequeña', url: 'https://instagram.com/marchant.dart' },
+      { role: 'artista visual', name: 'Alejandro Peña', url: 'https://instagram.com/marchant.dart' },
       { role: 'lugar', name: 'ATL Café', url: 'https://atlcafe.mx' },
     ],
     description:
-      'La primera edición de El Taller sucedió dentro del taller de arte de ATL Café. Mientras Mellon Collie interpretaba una sesión acústica inspirada en el formato Tiny Desk, el artista visual Alejandro Pequeña pintaba al óleo en vivo un lienzo basado en las emociones que la música le provocaba en tiempo real. Dos disciplinas creativas coexistiendo en el mismo espacio, al mismo tiempo. Ese momento define la esencia de El Taller: crear un punto de encuentro donde la creación sucede frente a ti y la experiencia se vuelve colectiva.',
+      'La primera edición de El Taller sucedió dentro del taller de arte de ATL Café. Mientras Mellon Collie interpretaba una sesión acústica inspirada en el formato Tiny Desk, el artista visual Alejandro Peña pintaba al óleo en vivo un lienzo basado en las emociones que la música le provocaba en tiempo real. Dos disciplinas creativas coexistiendo en el mismo espacio, al mismo tiempo. Ese momento define la esencia de El Taller: crear un punto de encuentro donde la creación sucede frente a ti y la experiencia se vuelve colectiva.',
     coverImage: '/3.jpg',
     setlist: [],
     images: [

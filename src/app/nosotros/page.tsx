@@ -57,19 +57,22 @@ export default function Nosotros() {
                 className="font-display leading-[0.92] text-fg"
                 style={{ fontSize: 'clamp(2.4rem, 4.5vw, 5.8rem)' }}
               >
-                <span style={{ color: 'var(--color-accent)' }}>El Taller</span> es una experiencia{' '}
+                <span style={{ color: 'var(--color-accent)' }}>El Taller</span> es una{' '}
+                <span style={{ color: 'var(--color-accent)' }}>experiencia</span>{' '}
                 <span style={{ color: 'var(--color-accent)' }}>multisensorial</span> en vivo.
               </h1>
 
               <p
-                className="font-display leading-[0.92] text-muted"
-                style={{ fontSize: 'clamp(1.8rem, 3.8vw, 4.5rem)' }}
+                className="font-display leading-[0.92]"
+                style={{ fontSize: 'clamp(1.8rem, 3.8vw, 4.5rem)', color: 'var(--color-fg)' }}
               >
-                Más que un evento, es un punto de encuentro donde la creación sucede
-                en tiempo real y la experiencia se vuelve colectiva.
+                Más que un evento, es un{' '}
+                <span style={{ color: 'var(--color-accent)' }}>punto de encuentro</span>{' '}
+                donde la creación sucede en tiempo real y la experiencia se vuelve{' '}
+                <span style={{ color: 'var(--color-accent)' }}>colectiva.</span>
               </p>
 
-              <p className="font-body text-xs tracking-widest text-muted/40 uppercase">
+              <p className="font-body text-xs tracking-widest uppercase" style={{ color: 'var(--color-accent)' }}>
                 música · arte · comunidad
               </p>
             </div>
@@ -77,7 +80,7 @@ export default function Nosotros() {
             {/* Derecha — dos bloques centrados horizontalmente */}
             <div className="flex flex-col gap-8 border-l border-fg/10 pl-8 md:pl-10 items-end justify-center h-full text-right">
               <div>
-                <p className="font-body text-s tracking-widest uppercase text-muted mb-4">¿para quién?</p>
+                <p className="font-body text-xs tracking-widest uppercase mb-4" style={{ color: 'var(--color-accent)' }}>¿para quién?</p>
                 <p
                   className="font-display leading-none text-fg mb-4"
                   style={{ fontSize: 'clamp(1.8rem, 2.8vw, 3rem)' }}
@@ -91,7 +94,7 @@ export default function Nosotros() {
               </div>
 
               <div className="border-t border-fg/10 pt-8">
-                <p className="font-body text-s tracking-widest uppercase text-muted mb-3">equipo</p>
+                <p className="font-body text-xs tracking-widest uppercase mb-3" style={{ color: 'var(--color-accent)' }}>equipo</p>
                 <p
                   className="font-display leading-none text-fg mb-4"
                   style={{ fontSize: 'clamp(1.8rem, 2.8vw, 3rem)' }}
@@ -109,38 +112,39 @@ export default function Nosotros() {
 
         {/* ── HISTORIA ────────────────────────────────────────────── */}
         {active === 'historia' && (
-          <div className="flex-1 flex flex-col md:grid md:grid-cols-[1fr_1fr] gap-10 md:gap-0 min-h-0 md:items-center">
+          <div className="flex-1 min-h-0 md:grid md:grid-cols-[1fr_1fr] md:gap-0 md:items-center
+                          flex flex-col gap-3">
 
-            {/* Izquierda — Título + logo */}
-            <div className="flex flex-col gap-6 md:pr-12 md:border-r border-fg/10 md:justify-center md:h-full">
-              <p className="font-body text-xs tracking-widest uppercase text-muted">historia</p>
-              <h2 className="font-display leading-none text-fg" style={{ fontSize: 'clamp(3rem, 6vw, 7rem)' }}>
-                Nace de<br />ATL Café.
+            {/* Mobile: label + título + logo centrado */}
+            <div className="flex flex-col gap-2 md:gap-6 md:pr-12 md:border-r border-fg/10 md:justify-center md:h-full">
+              <h2 className="font-display leading-none" style={{ fontSize: 'clamp(2rem, 6vw, 7rem)', color: 'var(--color-fg)' }}>
+                Nace de{' '}
+                <span style={{ color: 'var(--color-accent)' }}>ATL Café.</span>
               </h2>
               <Image
                 src="/atl%20negro.png"
                 alt="ATL Café"
-                width={300} height={150}
-                className="h-28 w-auto object-contain object-left"
+                width={600} height={150}
+                className="h-40 md:h-45 w-auto object-contain mx-auto md:mx-0"
               />
             </div>
 
-            {/* Derecha — texto */}
-            <div className="flex flex-col gap-6 md:pl-12 md:justify-center md:h-full">
-              <p className="font-body text-base md:text-lg text-muted leading-relaxed">
+            {/* Texto derecha */}
+            <div className="flex flex-col gap-3 md:gap-5 md:pl-12 md:justify-center md:h-full">
+              <p className="font-body text-sm md:text-base text-muted leading-relaxed">
                 ATL Café siempre funcionó como un espacio seguro para la creación.
                 Más que una cafetería, un punto de encuentro para artistas, creativos
                 y personas que buscan algo auténtico.
               </p>
-              <p className="font-body text-base md:text-lg text-muted leading-relaxed">
+              <p className="font-body text-sm md:text-base text-muted leading-relaxed">
                 De ese espíritu nace El Taller: llevar esa energía a un formato de experiencia
                 en vivo donde la creación sucede frente a ti y la comunidad es parte del proceso.
               </p>
-              <p className="font-body text-base md:text-lg text-muted leading-relaxed">
+              <p className="font-body text-sm md:text-base text-muted leading-relaxed">
                 La intención es construir comunidad real, impulsar talento independiente
                 y abrir nuevas oportunidades creativas.
               </p>
-              <p className="font-display leading-none" style={{ fontSize: 'clamp(1.6rem, 3vw, 3rem)', color: 'var(--color-accent)' }}>
+              <p className="font-display leading-none" style={{ fontSize: 'clamp(1.2rem, 3vw, 2.8rem)', color: 'var(--color-accent)' }}>
                 Arte, música y comunidad<br />en un mismo espacio.
               </p>
             </div>
@@ -153,37 +157,42 @@ export default function Nosotros() {
 
         {/* ── EXPERIENCIA ─────────────────────────────────────────── */}
         {active === 'experiencia' && (
-          <div className="flex-1 flex flex-col min-h-0">
-            <p className="font-body text-sm text-muted leading-relaxed mb-5 max-w-2xl shrink-0">
-              Cada edición es un ciclo creativo completo — no es solo un evento.
-              El arte se vive, se documenta y se comparte.
-            </p>
-            <div className="flex-1 grid grid-cols-2 md:grid-cols-5 min-h-0">
+          <div className="flex-1 flex flex-col min-h-0 overflow-y-auto md:overflow-hidden justify-center">
+
+            {/* Mobile: timeline vertical */}
+            <div className="flex md:hidden flex-col">
               {fases.map((f, i) => (
-                <div
-                  key={f.n}
-                  className={`flex flex-col justify-between p-4 border-t border-fg/10 group ${i < fases.length - 1 ? 'border-r border-fg/10' : ''}`}
-                >
-                  <div>
-                    <span
-                      className="font-display leading-none text-fg/8 block mb-3"
-                      style={{ fontSize: 'clamp(3rem, 6vw, 7rem)' }}
-                    >
-                      {f.n}
-                    </span>
-                    <h3
-                      className="font-display leading-none text-fg group-hover:text-accent transition-colors duration-300 mb-3"
-                      style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2.8rem)' }}
-                    >
-                      {f.titulo}
-                    </h3>
+                <div key={f.n} className="flex gap-4">
+                  <div className="flex flex-col items-center">
+                    <div className="w-2.5 h-2.5 rounded-full shrink-0 mt-1" style={{ backgroundColor: 'var(--color-accent)' }} />
+                    {i < fases.length - 1 && <div className="w-px flex-1 my-1" style={{ backgroundColor: 'var(--color-accent)', opacity: 0.25 }} />}
                   </div>
-                  <p className="font-body text-xs md:text-sm text-muted leading-relaxed">
-                    {f.texto}
-                  </p>
+                  <div className="pb-6 flex-1">
+                    <p className="font-body text-xs tracking-widest text-muted mb-1">{f.n}</p>
+                    <h3 className="font-display leading-none text-fg mb-2" style={{ fontSize: 'clamp(1.6rem, 5vw, 2.2rem)' }}>{f.titulo}</h3>
+                    <p className="font-body text-sm text-muted leading-relaxed">{f.texto}</p>
+                  </div>
                 </div>
               ))}
             </div>
+
+            {/* Desktop: timeline horizontal */}
+            <div className="hidden md:flex items-start flex-1 min-h-0 pt-4">
+              {fases.map((f, i) => (
+                <div key={f.n} className="flex flex-col flex-1 min-w-0 group">
+                  <div className="flex items-center mb-6">
+                    <div className="w-3 h-3 rounded-full shrink-0 transition-transform duration-300 group-hover:scale-125" style={{ backgroundColor: 'var(--color-accent)' }} />
+                    {i < fases.length - 1 && <div className="flex-1 h-px" style={{ backgroundColor: 'var(--color-accent)', opacity: 0.2 }} />}
+                  </div>
+                  <div className="pr-6">
+                    <p className="font-body text-xs tracking-widest text-muted mb-2">{f.n}</p>
+                    <h3 className="font-display leading-none text-fg group-hover:text-accent transition-colors duration-300 mb-3" style={{ fontSize: 'clamp(1.4rem, 2.2vw, 2.8rem)' }}>{f.titulo}</h3>
+                    <p className="font-body text-sm text-muted leading-relaxed">{f.texto}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
           </div>
         )}
 
