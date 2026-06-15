@@ -30,10 +30,10 @@ const restantes = ['AUTENTICIDAD', 'SENSIBILIDAD', 'INNOVACION', 'EXPRESION', 'R
 
 export function ValoresCrucigrama() {
   return (
-    <div className="flex-1 grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-0 min-h-0 items-center">
+    <div className="flex-1 flex flex-col md:grid md:grid-cols-[3fr_2fr] gap-6 md:gap-0 min-h-0 md:items-center overflow-y-auto md:overflow-hidden">
 
       {/* ── Crucigrama ─────────────────────────────────────── */}
-      <div className="flex items-center justify-center h-full py-2">
+      <div className="flex items-center justify-center shrink-0 md:h-full md:py-2">
         <div
           className="grid w-full"
           style={{ gridTemplateColumns: `repeat(${COLS}, minmax(0, 1fr))` }}
@@ -70,9 +70,9 @@ export function ValoresCrucigrama() {
       </div>
 
       {/* ── Valores restantes ──────────────────────────────── */}
-      <div className="flex flex-col border-l border-fg/10 pl-8 md:pl-10 h-full justify-center gap-3 py-4">
+      <div className="flex flex-col md:border-l border-t md:border-t-0 border-fg/10 md:pl-10 pt-4 md:pt-0 md:h-full md:justify-center gap-2 shrink-0">
         {restantes.map((v) => (
-          <div key={v} className="border-t border-fg/10 pt-3">
+          <div key={v} className="border-b border-fg/10 pb-2">
             <span
               className="font-display leading-none text-muted hover:text-fg transition-colors duration-300 cursor-default"
               style={{ fontSize: 'clamp(1.2rem, 2.8vw, 2.8rem)' }}
@@ -81,7 +81,6 @@ export function ValoresCrucigrama() {
             </span>
           </div>
         ))}
-        <div className="border-t border-fg/10" />
       </div>
 
     </div>

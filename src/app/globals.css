@@ -115,7 +115,11 @@ a, button, [role="button"] {
   letter-spacing: 0.08em;
   text-transform: lowercase;
   transition: color 0.25s ease;
-  font-size: 1.25rem;
+  font-size: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .nav-link { font-size: 1.25rem; }
 }
 
 .nav-link:hover,

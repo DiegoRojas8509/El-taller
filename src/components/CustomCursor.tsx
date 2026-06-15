@@ -1,13 +1,17 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 
 export function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null)
   const ringRef = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
+    setVisible(true)
+
     const dot = dotRef.current
     const ring = ringRef.current
     if (!dot || !ring) return
@@ -88,6 +92,8 @@ export function CustomCursor() {
       observer.disconnect()
     }
   }, [])
+
+  if (!visible) return null
 
   return (
     <>

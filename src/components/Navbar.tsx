@@ -5,8 +5,8 @@ import { usePathname } from 'next/navigation'
 
 const links = [
   { href: '/nosotros', label: 'nosotros' },
-  { href: '/ediciones', label: 'edicion' },
-  { href: '/proximamente', label: 'proximamente' },
+  { href: '/ediciones', label: 'ediciones' },
+  { href: '/proximamente', label: 'próximamente' },
   { href: '/contacto', label: 'contacto' },
 ]
 
@@ -18,7 +18,7 @@ export function Navbar({ white = false }: NavbarProps) {
   const pathname = usePathname()
 
   return (
-    <nav className="flex items-center justify-center gap-16 md:gap-24">
+    <nav className="flex items-center justify-center gap-5 md:gap-16 lg:gap-24">
       {links.map(({ href, label }) => (
         <Link
           key={href}

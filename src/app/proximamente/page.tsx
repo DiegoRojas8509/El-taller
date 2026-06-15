@@ -15,17 +15,16 @@ export default function Proximamente() {
       <section className="flex-1 flex items-center justify-center px-6">
         <RevealText className="text-center">
           <p
-            className="font-body text-lg md:text-1xl tracking-widest uppercase mb-6"
+            className="font-body text-xs tracking-widest uppercase mb-4"
             style={{ color: 'rgba(245,245,242,0.5)' }}
           >
             siguiente edición
           </p>
           <h1
-            className="whitespace-nowrap"
             style={{
               fontFamily: 'var(--font-big-shoulders)',
               fontWeight: 900,
-              fontSize: 'clamp(4rem, 12vw, 12rem)',
+              fontSize: 'clamp(2.6rem, 7vw, 9rem)',
               color: '#F5F5F2',
               letterSpacing: '-0.02em',
               lineHeight: 0.95,

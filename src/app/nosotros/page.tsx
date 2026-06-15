@@ -30,13 +30,13 @@ export default function Nosotros() {
       <Header />
 
       {/* Tabs */}
-      <nav className="px-6 md:px-16 lg:px-24 flex gap-8 border-b border-fg/10 shrink-0">
+      <nav className="flex items-center justify-center gap-5 md:gap-16 lg:gap-24 border-b border-fg/10 shrink-0 pb-3">
         {tabs.map((t) => (
           <button
             key={t}
             onClick={() => setActive(t)}
-            className={`font-body text-xs md:text-sm tracking-widest uppercase pb-3 border-b-2 transition-all duration-200 ${
-              active === t ? 'border-accent text-accent' : 'border-transparent text-muted hover:text-fg'
+            className={`nav-link border-b-2 pb-0 transition-all duration-200 ${
+              active === t ? 'border-accent !text-accent' : 'border-transparent'
             }`}
           >
             {t}
