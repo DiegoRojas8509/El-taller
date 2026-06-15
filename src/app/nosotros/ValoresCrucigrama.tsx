@@ -1,15 +1,16 @@
 'use client'
 
 // ── Crucigrama: 3 palabras con intersecciones válidas ─────────────
-// CONEXION(V) cruza COMUNIDAD(H) en N y CREATIVIDAD(H) en I
+// CONEXION(V) col 5. COMUNIDAD(H) arranca en la C de CONEXION (row 0, col 5).
+// CREATIVIDAD(H) cruza CONEXION en I (row 5, col 5).
 
 const ROWS = 8
-const COLS = 11
+const COLS = 14
 
 const crossword = [
-  { word: 'CONEXION',    h: false, row: 0, col: 5 },   // vertical
-  { word: 'COMUNIDAD',   h: true,  row: 2, col: 1 },   // COMUNIDAD[4]=N = CONEXION[2]=N en (2,5) ✓
-  { word: 'CREATIVIDAD', h: true,  row: 5, col: 0 },   // CREATIVIDAD[5]=I = CONEXION[5]=I en (5,5) ✓
+  { word: 'CONEXION',    h: false, row: 0, col: 5 },   // vertical,  C en (0,5)
+  { word: 'COMUNIDAD',   h: true,  row: 0, col: 5 },   // horizontal, C[0] = CONEXION[0] en (0,5) ✓
+  { word: 'CREATIVIDAD', h: true,  row: 5, col: 0 },   // horizontal, I[5] = CONEXION[5] en (5,5) ✓
 ]
 
 type Cell = { char: string; isVertical: boolean } | null
@@ -48,7 +49,7 @@ export function ValoresCrucigrama() {
                   <span
                     className="font-display leading-none select-none"
                     style={{
-                      fontSize: 'clamp(1rem, 4.5vw, 4rem)',
+                      fontSize: 'clamp(0.75rem, 3.5vw, 3.5rem)',
                       color: cell.isVertical ? 'var(--color-accent)' : 'var(--color-fg)',
                     }}
                   >
