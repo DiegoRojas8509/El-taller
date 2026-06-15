@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design Tokens ──────────────────────────────────────────── */
+
+:root {
+  /* Base — siempre B&W */
+  --color-bg:           #F5F5F2;
+  --color-fg:           #0A0A0A;
+  --color-muted:        #888888;
+
+  /* Acento de marca — azul morado El Taller */
+  --color-accent:       #2E2D7A;
+  --color-accent-hover: #3D3C9A;
+
+  /* Edición 1 — Mellon Collie (naranja) */
+  --color-ed1:          #E8621A;
+  --color-ed1-light:    #F07840;
+
+  /* Tipografías (cargadas por next/font) */
+  --font-bebas:   'Bebas Neue', Impact, 'Arial Narrow', sans-serif;
+  --font-inter:   'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+
+/* ─── Selección de texto ─────────────────────────────────────── */
+/* Usa --color-accent automáticamente:
+   - Páginas normales → azul morado #2E2D7A
+   - Mellon Collie   → naranja #E8621A (EditionPageClient hace el override) */
+
+::selection {
+  background-color: transparent;
+  color: var(--color-accent);
+}
+
+/* ─── Reset Base ─────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: none; /* Oculta el cursor nativo — el CustomCursor toma el control */
+}
+
+/* En mobile/touch, restaurar cursor normal */
+@media (hover: none) {
+  html { cursor: auto; }
+}
+
+a, button, [role="button"] {
+  cursor: none;
+}
+
+@media (hover: none) {
+  a, button, [role="button"] { cursor: auto; }
+}
+
+/* ─── Tipografía Display ─────────────────────────────────────── */
+
+.font-display {
+  font-family: var(--font-bebas);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+}
+
+/* ─── Colores de Acento ──────────────────────────────────────── */
+
+.text-accent  { color: var(--color-accent); }
+.text-muted   { color: var(--color-muted); }
+
+/* ─── Transición de Página ───────────────────────────────────── */
+
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+/* ─── Animaciones de Scroll ──────────────────────────────────── */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Cursor Global ──────────────────────────────────────────── */
+
+.cursor-dot {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+/* ─── Nav ────────────────────────────────────────────────────── */
+
+.nav-link {
+  color: var(--color-fg);
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  transition: color 0.25s ease;
+  font-size: 1.25rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-accent);
+}
+
+/* ─── Hero Text (estilo LittleSpain) ────────────────────────── */
+
+.hero-text {
+  font-family: var(--font-bebas);
+  font-size: clamp(2.5rem, 7vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: var(--color-fg);
+}
+
+.hero-text .accent {
+  color: var(--color-accent);
+}
+
+.hero-text .muted {
+  color: var(--color-muted);
+}
+
+/* ─── Edición — override de acento al entrar ─────────────────── */
+
+[data-edition="mellon-collie"] {
+  --color-accent:       var(--color-ed1);
+  --color-accent-hover: var(--color-ed1-light);
+}
