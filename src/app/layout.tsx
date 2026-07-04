@@ -28,7 +28,13 @@ export const metadata: Metadata = {
   description:
     'Una experiencia multisensorial en vivo. Música, arte y comunidad coexistiendo.',
   manifest: '/manifest.json',
-  icons: { apple: '/icon-192.png' },
+  icons: {
+    icon: [
+      { url: '/logo-negro.png', media: '(prefers-color-scheme: light)', type: 'image/png' },
+      { url: '/logo-blanco.png', media: '(prefers-color-scheme: dark)', type: 'image/png' },
+    ],
+    apple: '/icon-192.png',
+  },
   openGraph: {
     title: 'El Taller',
     description: 'Una experiencia multisensorial en vivo.',
