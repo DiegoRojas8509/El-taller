@@ -38,7 +38,7 @@ export function ConfirmacionDM({ codigo }: ConfirmacionDMProps) {
       </h1>
 
       <p className="font-body text-base mb-6 text-fg/80 leading-relaxed">
-        Mándanos este código por DM a <strong>@{IG_HANDLE}</strong> para confirmar tu asistencia al evento.
+        Mándanos este código por DM a <strong>@{IG_HANDLE}</strong> para confirmar tu asistencia al evento yyy no lo pierdas.
       </p>
 
       <div className="flex items-center justify-between border border-fg/20 rounded-2xl px-6 py-5 mb-6">
