@@ -18,7 +18,7 @@ export function ContenidoEvento() {
           Collie interpretaba una sesión acústica inspirada en el formato Tiny Desk,
           Alejandro Peña pintaba al óleo en vivo un lienzo basado en las emociones que la
           música le provocaba en tiempo real — Dos disciplinas coexistiendo en el mismo
-          espacio, al mismo tiempo. Este 18 de julio del 2026 nos compartiran un poco de quiénes
+          espacio, al mismo tiempo. Este 18 de julio del 2026 nos compartirán un poco de quiénes
           son, qué hacen y cómo vivieron esa experiencia dentro de El Taller.
         </p>
       </RevealText>
