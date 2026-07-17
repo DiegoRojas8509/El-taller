@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { RevealText } from '@/components/RevealText'
 
 export function ContenidoEvento() {
@@ -14,7 +15,18 @@ export function ContenidoEvento() {
           Conoce a los artistas
         </h2>
         <p className="font-body text-base text-fg/80 leading-relaxed">
-          <strong>Mellon Collie</strong> (banda) y <strong>Alejandro Peña</strong> (pintor) fueron los invitados de la primera edición de El Taller. Mientras Mellon
+          <strong>
+            <Link href="/ediciones/mellon-collie" className="text-[#E8621A] hover:underline" data-cursor-hover>
+              Mellon Collie
+            </Link>
+          </strong>{' '}
+          (banda) y{' '}
+          <strong>
+            <Link href="/ediciones/mellon-collie" className="text-[#E8621A] hover:underline" data-cursor-hover>
+              Alejandro Peña
+            </Link>
+          </strong>{' '}
+          (pintor) fueron los invitados de la primera edición de El Taller. Mientras Mellon
           Collie interpretaba una sesión acústica inspirada en el formato Tiny Desk,
           Alejandro Peña pintaba al óleo en vivo un lienzo basado en las emociones que la
           música le provocaba en tiempo real — Dos disciplinas coexistiendo en el mismo
@@ -40,7 +52,7 @@ export function ContenidoEvento() {
 
          <ul className="flex flex-col gap-3">
           <li className="font-body text-base text-fg/80 leading-relaxed">
-            <strong className="text-fg">Horario:</strong> {"4:30 p.m"}
+            <strong className="text-fg">Horario:</strong> {"4:30 p.m."}
           </li>
           <li className="font-body text-base text-fg/80 leading-relaxed">
             <strong className="text-fg">Dress code:</strong> {"Prenda color naranja"}
