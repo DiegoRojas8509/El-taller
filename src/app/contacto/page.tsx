@@ -1,6 +1,7 @@
 import { Navbar } from '@/components/Navbar'
 import { RevealText } from '@/components/RevealText'
 import { Header } from '@/components/Header'
+import { YOUTUBE_CANAL_URL } from '@/lib/eventoConfig'
 
 export default function Contacto() {
   return (
@@ -41,7 +42,7 @@ export default function Contacto() {
               href="https://instagram.com/eltaller.atl"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-4 font-display text-[clamp(1.8rem,5vw,4.5rem)] leading-none text-muted hover:text-accent transition-colors duration-300"
+              className="group flex items-center gap-4 font-display text-[clamp(1.8rem,5vw,4.5rem)] leading-none text-muted hover:text-accent transition-colors duration-300 mb-10"
               data-cursor-hover
             >
               <svg
@@ -58,6 +59,30 @@ export default function Contacto() {
                 <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
               </svg>
               @eltaller.atl
+            </a>
+          </RevealText>
+
+          <RevealText delay={260}>
+            <a
+              href={YOUTUBE_CANAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-4 font-display text-[clamp(1.8rem,5vw,4.5rem)] leading-none text-muted hover:text-accent transition-colors duration-300"
+              data-cursor-hover
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="shrink-0 w-[clamp(1.4rem,3.5vw,3rem)] h-[clamp(1.4rem,3.5vw,3rem)]"
+              >
+                <rect x="2" y="5" width="20" height="14" rx="4" />
+                <path d="M10.5 9.2 15 12l-4.5 2.8V9.2Z" fill="currentColor" stroke="none" />
+              </svg>
+              @ElTaller_AtlCafe
             </a>
           </RevealText>
         </div>

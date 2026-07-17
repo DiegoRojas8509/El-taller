@@ -48,20 +48,6 @@ html {
   font-family: var(--font-inter);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: none; /* Oculta el cursor nativo — el CustomCursor toma el control */
-}
-
-/* En mobile/touch, restaurar cursor normal */
-@media (hover: none) {
-  html { cursor: auto; }
-}
-
-a, button, [role="button"] {
-  cursor: none;
-}
-
-@media (hover: none) {
-  a, button, [role="button"] { cursor: auto; }
 }
 
 /* ─── Tipografía Display ─────────────────────────────────────── */
@@ -96,16 +82,6 @@ a, button, [role="button"] {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* ─── Cursor Global ──────────────────────────────────────────── */
-
-.cursor-dot {
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
 }
 
 /* ─── Nav ────────────────────────────────────────────────────── */
