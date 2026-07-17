@@ -20,7 +20,7 @@ export function ConfirmacionDM({ codigo }: ConfirmacionDMProps) {
   function abrirInstagram() {
     // Aunque no le hayan dado a "copiar" antes, este botón copia el mensaje
     // completo (no solo el código) para que quede listo para pegar y mandar.
-    const mensaje = `Hola Taller! Les mando mi código ${codigo} para confirmar mi registro al evento :)`
+    const mensaje = `Hola Taller! Les mando mi código ${codigo} para confirmar mi registro al evento :))`
     navigator.clipboard.writeText(mensaje)
     window.open(`https://ig.me/m/${IG_HANDLE}`, '_blank')
   }
